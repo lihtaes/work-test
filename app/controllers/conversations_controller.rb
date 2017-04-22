@@ -4,4 +4,9 @@ class ConversationsController < ApplicationController
   def index
     @conversations = current_representative.conversations.includes(:lead).all if current_representative
   end
+
+  def index_show
+
+  end
+
 end

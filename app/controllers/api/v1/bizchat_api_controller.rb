@@ -25,7 +25,13 @@ class Api::V1::BizchatApiController < ApplicationController
     @conversation.messages.build(body: body, direction: direction, status: status, from: from, message_sid: message_sid, representative_id: @conversation.representative_id).save!
     
     head :ok, content_type: "text/html"
+
+    #(send_cable)
+    update_conversation_live message
   end
+
+
+
 
 
 end

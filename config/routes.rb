@@ -23,5 +23,7 @@ Rails.application.routes.draw do
       post 'reply', to: 'bizchat_api#reply'
     end
   end
+
+  mount ActionCable.server => '/cable'
   
 end
