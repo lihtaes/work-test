@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require cable
+//= require gritter
 //= require turbolinks
 //= require_tree .

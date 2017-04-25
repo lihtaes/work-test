@@ -6,8 +6,11 @@ module DeviseWhitelist
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u|
-      u.permit(:email, :password, :first_name, :last_name, :phone, :type, company: [:name])
-    }
+    # devise_parameter_sanitizer.for(:sign_up) { |u|
+    #   u.permit(:email, :password, :first_name, :last_name, :phone, :type, company: [:name])
+    # }
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :first_name, :last_name, :phone, :type, company: [:name]])
+
   end
 end

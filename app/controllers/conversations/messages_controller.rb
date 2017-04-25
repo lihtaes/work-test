@@ -21,7 +21,7 @@ class Conversations::MessagesController < ApplicationController
 
   private
     def set_conversation
-      @conversation = current_representative.conversations.find(params[:conversation_id])
+      @conversation = current_representative.conversations.find(params[:conversation_id]) if current_representative.conversations
     end
 
     def message_params

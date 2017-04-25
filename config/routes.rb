@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post 'lead', to: 'bizchat_api#lead'
-      post 'reply', to: 'bizchat_api#reply'
+      post 'receive_sms_reply', to: 'bizchat_api#receive_sms_reply'
     end
   end
 

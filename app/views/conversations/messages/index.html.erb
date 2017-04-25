@@ -1,6 +1,8 @@
 <h1>Messages with <%= @conversation.lead.first_name + " " + @conversation.lead.last_name %> </h1>
 
-<div id="messages">
+
+
+<div id="messages conversation-body" data-conversation-id="<%= @conversation.id %>">
   <%= render @messages %>
 </div>
 

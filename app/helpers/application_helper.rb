@@ -7,17 +7,15 @@ module ApplicationHelper
     admin_types.include?(current_representative.type)
   end
 
-  def update_conversation_live message
-    html_msg = render_msg message
-    ActionCable.server.brodacast 'messages',
-    number: message.lead.number,
-    html: html
+  def alerts
+    alert = (flash[:alert] || flash[:error] || flash[:notice])
+    if alert
+      alert_generator alert
+    end
   end
 
-  def render_message message
-    ApplicationController.render({
-      partial: 'conversations/messages/message',
-      locals: { message: message }
-    })
+  def alert_generator msg
+    js add_gritter(msg, :title => "BizChat", :sticky => false, :time => 1000)
   end
+
 end
