@@ -17,7 +17,6 @@ class Api::V1::BizchatApiController < ApplicationController
 
   def receive_sms_reply
     set_receive_params params
-
     build_message
   end
 
@@ -36,15 +35,4 @@ class Api::V1::BizchatApiController < ApplicationController
       @message = @conversation.messages.build(body: @body, direction: @direction, status: @status, from: @from, message_sid: @message_sid, representative_id: @conversation.representative_id).save!
       head :ok, content_type: "text/html" 
     end
-
 end
-
-
-
-
-
-
-
-
-
-

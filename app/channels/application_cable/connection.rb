@@ -10,7 +10,7 @@ module ApplicationCable
     protected
 
     def find_verified_representative # this checks whether a user is authenticated with devise
-      verified_representative = env['warden'].representative
+      verified_representative = env['warden'].user
       if verified_representative
         verified_representative
       else
