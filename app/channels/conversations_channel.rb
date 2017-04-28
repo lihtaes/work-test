@@ -12,18 +12,16 @@ class ConversationsChannel < ApplicationCable::Channel
       message = conversation.messages.build({body: data['message']})
       message.conversation = conversation
       message.representative = conversation.representative
+      message.to = conversation.lead.phone
+      message.status = 'pending'
       message.save!
+      sms_job message
     end
   end
 
-
-
   private
-    def sms_job(data)
-      SendSmsJob.perform_later(@message)
-    end
-
-    def buid_message_for_sms
+    def sms_job(message)
+      SendSmsJob.perform_later(message)
     end
 
 end

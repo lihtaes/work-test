@@ -6,7 +6,14 @@ Rails.application.routes.draw do
     resources :messages, module: :conversations, only: [:index, :create]
   end
 
+  
+  
   root to: 'conversations#index'
+  
+
+  namespace :admin do
+    resources :representatives
+  end
   
  # namespace :api, path: '', constraints: {subdomain: 'api'} do
   # namespace :api do
@@ -19,8 +26,8 @@ Rails.application.routes.draw do
   # end
   namespace :api do
     namespace :v1 do
-      post 'lead', to: 'bizchat_api#lead'
-      post 'receive_sms_reply', to: 'bizchat_api#receive_sms_reply'
+      post 'lead', to: 'bizchat_api#create_lead'
+      post 'sms', to: 'bizchat_api#receive_sms_reply'
     end
   end
 

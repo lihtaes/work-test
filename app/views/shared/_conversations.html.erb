@@ -1,10 +1,8 @@
+<% @conversations.each do |conversation| %>
 <div class="conversation">
   Person: <%= conversation.lead.first_name + " " + conversation.lead.last_name %><br>
 
   <%= link_to "View Conversation", conversation_messages_path(conversation) %>
-
   <hr>
-
 </div>
-
-
+<% end %>

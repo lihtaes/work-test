@@ -5,6 +5,7 @@ class Conversations::MessagesController < ApplicationController
   def index
     @messages = @conversation.messages.order("created_at ASC")
     @message = @conversation.messages.build 
+    @conversations = current_representative.conversations.includes(:lead).all if current_representative
   end
 
   def create

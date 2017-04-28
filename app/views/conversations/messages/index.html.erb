@@ -1,14 +1,15 @@
-<h1>Messages with <%= @conversation.lead.first_name + " " + @conversation.lead.last_name %> </h1>
-
-
-
-<div id="messages" data-conversation-id="<%= @conversation.id %>">
-  <%= render @messages %>
+<div class="left">
+  <h1>Conversations</h1>
+  <div id="conversations">
+    <%= render 'shared/conversations' %>
+  </div>
 </div>
 
-<%= form_for (@message), url: conversation_messages_path(@conversation) do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, class: 'form-control', placeholder: 'Type your message to send' %>
+<div class="right">
+  <h1>Messages with <%= @conversation.lead.first_name + " " + @conversation.lead.last_name %> 
+  </h1>
+  <div id="messages" data-conversation-id="<%= @conversation.id %>">
+    <%= render @messages %>
   </div>
-    <%= f.submit 'Send Message', class: 'btn btn-primary' %>
-<% end %>
+  <%= render 'conversations/messages/message_form' %>
+</div>
