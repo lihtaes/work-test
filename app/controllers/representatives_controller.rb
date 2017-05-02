@@ -52,16 +52,6 @@ class RepresentativesController < ApplicationController
     end
 
     def rep_params
-      params.require(:representative).permit(:email, :first_name, :last_name, :password)
-    end
-
-    def sign_up_params
-      params.require(:representative).permit( :email, :password, :password_confirmation, :type, company_attributes:[:name])
-    end
-
-    def account_update_params
-      # For updates we make sure to let the Company ID pass through or the form will
-      # generate a new company every time we edit our details
-      params.require(:representative).permit(:email, :password, :password_confirmation, :current_password, :type, company_attributes: [:id, :name])
+      params.require(:representative).permit(:email, :first_name, :last_name, :password, :password_confirmation, :type, company_attributes: [:name])
     end
 end
