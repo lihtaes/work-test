@@ -34,5 +34,6 @@ gem 'twilio-ruby', '~> 4.13'
 gem 'sucker_punch', '~> 2.0', '>= 2.0.2'
 gem 'redis', '~> 3.3', '>= 3.3.3'
 gem 'gritter', '~> 1.2'
+gem 'cancan', '~> 1.6', '>= 1.6.10'
 
 ruby "2.4.0"
