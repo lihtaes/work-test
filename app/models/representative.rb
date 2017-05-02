@@ -7,7 +7,7 @@ class Representative < ApplicationRecord
   belongs_to :company
   accepts_nested_attributes_for :company, :reject_if => :all_blank
   validates :email, presence: true, uniqueness: {scope: :company_id}
-  
+  validates_presence_of :phone, :first_name, :last_name
 
   
   has_many :leads

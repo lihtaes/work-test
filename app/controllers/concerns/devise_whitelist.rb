@@ -3,6 +3,7 @@ module DeviseWhitelist
 
   included do
     before_action :configure_permitted_parameters, if: :devise_controller?
+
   end
 
   def configure_permitted_parameters

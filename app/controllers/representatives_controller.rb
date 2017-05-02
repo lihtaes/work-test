@@ -1,5 +1,4 @@
 class RepresentativesController < ApplicationController
-  load_and_authorize_resource
   before_action :set_company!
 
   def index
@@ -11,12 +10,11 @@ class RepresentativesController < ApplicationController
   end
 
   def create
-    @representative = Representative.build(rep_params)
+    @representative = Representative.new(rep_params)
     @representative.update!(company_id: @company.id)
-
     if @representative.save
       flash[:notice] = "Successfully created Representative." 
-      redirect_to root_path
+      redirect_to representatives_path
     else
       render :action => 'new'
     end
