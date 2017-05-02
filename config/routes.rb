@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :representatives, :controllers => { registrations: 'representatives' }
-  #resources :representatives, :controller => "representatives"
+  devise_for :representatives
+  scope "/admin" do
+    resources :representatives, :controller => 'representatives'
+  end
+
   
   resources :conversations, only: [:index] do
     resources :messages, module: :conversations, only: [:index, :create]
