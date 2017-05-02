@@ -50,6 +50,6 @@ class RepresentativesController < ApplicationController
     end
 
     def rep_params
-      params.require(:representative).permit(:email, :first_name, :last_name, :password, :password_confirmation, :type, company_attributes: [:name])
+      params.require(:representative).permit(:email, :first_name, :last_name, :password, :password_confirmation, :type, :phone, company_attributes: [:name])
     end
 end
