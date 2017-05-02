@@ -1,6 +1,8 @@
 class Lead < ApplicationRecord
   belongs_to :representative
 
+  validates_presence_of :phone
+
   has_one :conversation
 
   after_create :create_conversation!
